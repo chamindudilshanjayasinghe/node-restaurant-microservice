@@ -1,7 +1,8 @@
-/app/node_modules
-/app/auth-service/node_modules
-/app/item-service/node_modules
-/app/order-service/node_modules
-/app/payment-service/node_modules
-/app/notification-service/node_modules
-/app/report-service/node_modules
+/app/cloud_services/node_modules
+/app/cloud_services/services/auth-service/node_modules
+/app/cloud_services/services/item-service/node_modules
+/app/cloud_services/services/order-service/node_modules
+/app/cloud_services/services/payment-service/node_modules
+/app/cloud_services/services/notification-service/node_modules
+/app/cloud_services/services/report-service/node_modules
+/app/cloud_services/common/mongoose-client/node_modules

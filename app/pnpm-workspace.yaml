@@ -1,9 +1,0 @@
-ignoredBuiltDependencies:
-  - bcrypt
-packages:
-  - 'auth-service'
-  - 'item-service'
-  - 'order-service'
-  - 'payment-service'
-  - 'notification-service'
-  - 'report-service'

@@ -1,5 +1,5 @@
 {
-  "name": "order-service",
+  "name": "menu-service",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -16,7 +16,7 @@
     "express": "^5.1.0",
     "mongoose-client": "workspace:*",
     "shared-mongoose-schemas": "workspace:*",
-    "shared-utils": "workspace:*"
+    "shared-utils": "^2.0.1"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",

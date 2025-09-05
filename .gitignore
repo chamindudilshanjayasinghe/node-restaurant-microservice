@@ -6,3 +6,6 @@
 /app/cloud_services/services/notification-service/node_modules
 /app/cloud_services/services/report-service/node_modules
 /app/cloud_services/common/mongoose-client/node_modules
+/app/cloud_services/common/mongoose-client/dist
+/app/cloud_services/common/schema/node_modules
+/app/cloud_services/common/schema/dist

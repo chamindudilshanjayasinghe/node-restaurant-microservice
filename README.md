@@ -1,20 +1,66 @@
 # 🍽️ Restaurant RMS – Microservices Monorepo
 
-This is a Node.js-based microservice architecture for a Restaurant Management System.  
-It uses **PNPM Workspaces**, **TypeScript**, and **Express**, organized as separate services.
+A **Restaurant Management System (RMS)** built with **Node.js microservices**,  
+designed for an **online ordering platform**.  
+
+It integrates **Stripe** for payments, **MongoDB** for data storage, and follows the **Repository Pattern** for clean business logic separation.
 
 ---
 
-## 📦 Monorepo Structure
+## 🏗️ System Architecture
 
-```bash
+```text
+                        ┌───────────────────┐
+                        │   API Gateway     │  (future)
+                        └─────────┬─────────┘
+                                  │
+              ┌───────────────────┼─────────────────────┐
+              │                   │                     │
+       ┌──────▼───────┐    ┌──────▼────────┐     ┌──────▼────────┐
+       │ Auth Service │    │ Order Service │     │ Payment Service│
+       │ (Users, JWT) │    │ (Orders CRUD) │     │ (Stripe, Audit)│
+       └──────┬───────┘    └──────┬────────┘     └──────┬────────┘
+              │                   │                     │
+              │                   │                     │
+       ┌──────▼───────┐    ┌──────▼────────┐     ┌──────▼────────┐
+       │ Item Service │    │ Report Service│     │ Notification   │
+       │ (Menu Mgmt)  │    │ (Sales, Stats)│     │ Service (Email │
+       └──────────────┘    └───────────────┘     │  SMS, Push)    │
+                                                 └───────────────┘
+
+Shared across all services:
+- MongoDB for persistence
+- Common package (DTOs, validation, utils)
+- Express + TypeScript
+
+📦 Monorepo Structure
+
 restaurant-rms/
-├── auth-service/            # Handles authentication & user roles
-├── item-service/            # Manages menu items and categories
-├── order-service/           # Handles order creation and status updates
-├── payment-service/         # Processes payments and refunds
-├── notification-service/    # Sends email/SMS/push notifications
-├── report-service/          # Generates sales and activity reports
+├── auth-service/            # Authentication & user roles
+├── item-service/            # Menu items & categories
+├── order-service/           # Orders & order status updates
+├── payment-service/         # Stripe payments & refunds
+├── notification-service/    # Email, SMS & push notifications
+├── report-service/          # Sales & activity reports
+├── common/                  # Shared DTOs, middlewares, utils
 ├── pnpm-workspace.yaml      # Workspace config
-├── package.json             # Root config with scripts
+├── package.json             # Root scripts & dependencies
 └── tsconfig.json            # Shared TypeScript config
+
+📐 Service Design Pattern
+
+┌──────────────┐
+│   Routes     │  → Maps endpoints to controllers
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│ Controller   │  → Validates requests, calls repository
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│ Repository   │  → Business logic & DB interaction
+└──────┬───────┘
+       │
+┌──────▼───────┐
+│  MongoDB     │  → Mongoose models per service
+└──────────────┘

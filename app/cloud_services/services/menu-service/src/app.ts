@@ -1,15 +1,15 @@
-import "reflect-metadata";
 import express, { Request, Response } from 'express';
 import { connectDB } from 'mongoose-client';
 import dotenv from 'dotenv';
-import orderRoutes from './routes/order.routes';
 
 dotenv.config();
 
 const app = express(); // ✅ now express is defined
 app.use(express.json());
 
-app.use("/api/orders", orderRoutes);
+app.get('/', (_req: Request, res: Response) => {
+  res.send('🍔 Order Service is running');
+});
 
 async function bootstrap() {
   try {

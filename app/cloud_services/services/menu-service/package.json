@@ -16,7 +16,7 @@
     "express": "^5.1.0",
     "mongoose-client": "workspace:*",
     "shared-mongoose-schemas": "workspace:*",
-    "shared-utils": "^2.0.1"
+    "shared-utils": "workspace:^"
   },
   "devDependencies": {
     "@types/express": "^5.0.3",

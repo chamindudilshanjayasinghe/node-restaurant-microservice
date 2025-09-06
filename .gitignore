@@ -9,3 +9,4 @@
 /app/cloud_services/common/mongoose-client/dist
 /app/cloud_services/common/schema/node_modules
 /app/cloud_services/common/schema/dist
+/app/cloud_services/pnpm-lock.yaml

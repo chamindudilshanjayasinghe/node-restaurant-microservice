@@ -1,7 +1,7 @@
 // src/models/user.model.ts
 import mongoose, { Document, Schema } from 'mongoose';
 
-export interface User extends Document {
+export interface UserDocument extends Document {
   email: string;
   password: string;
   fullName: string;
@@ -11,7 +11,7 @@ export interface User extends Document {
   updatedAt: Date;
 }
 
-const UserSchema = new Schema<User>(
+const UserSchema = new Schema<UserDocument>(
   {
     email: {
       type: String,
@@ -44,4 +44,4 @@ const UserSchema = new Schema<User>(
 );
 
 // Export Mongoose model
-export const UserModel = mongoose.models.User || mongoose.model<User>('User', UserSchema);
+export const UserModel = mongoose.models.User || mongoose.model<UserDocument>('User', UserSchema);

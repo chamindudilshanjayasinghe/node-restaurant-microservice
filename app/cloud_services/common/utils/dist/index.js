@@ -16,3 +16,4 @@ var __exportStar = (this && this.__exportStar) || function(m, exports) {
 Object.defineProperty(exports, "__esModule", { value: true });
 __exportStar(require("./enums/order.enum"), exports);
 __exportStar(require("./middleware/validate-dto.middleware"), exports);
+__exportStar(require("./middleware/auth.guard"), exports);

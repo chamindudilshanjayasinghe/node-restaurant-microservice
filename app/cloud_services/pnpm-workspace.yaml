@@ -1,3 +1,7 @@
 packages:
-  - "common/*"
-  - "services/*"
+  - common/*
+  - services/*
+
+ignoredBuiltDependencies:
+  - mongodb-memory-server
+  - unrs-resolver

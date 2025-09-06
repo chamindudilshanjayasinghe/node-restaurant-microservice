@@ -3,15 +3,13 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/shared';
-
 let cached = (global as any).mongoose;
 
 if (!cached) {
   cached = (global as any).mongoose = { conn: null, promise: null };
 }
 
-export async function connectDB() {
+export async function connectDB(uri: string) {
   if (cached.conn) return cached.conn;
 
   if (!cached.promise) {

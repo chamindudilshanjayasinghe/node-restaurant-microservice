@@ -7,12 +7,11 @@ exports.connectDB = connectDB;
 const mongoose_1 = __importDefault(require("mongoose"));
 const dotenv_1 = __importDefault(require("dotenv"));
 dotenv_1.default.config();
-const uri = process.env.MONGODB_URI || 'mongodb://localhost:27017/shared';
 let cached = global.mongoose;
 if (!cached) {
     cached = global.mongoose = { conn: null, promise: null };
 }
-async function connectDB() {
+async function connectDB(uri) {
     if (cached.conn)
         return cached.conn;
     if (!cached.promise) {

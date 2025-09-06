@@ -13,8 +13,8 @@ app.get('/', (_req: Request, res: Response) => {
 
 async function bootstrap() {
   try {
-    await connectDB();
-    const PORT = process.env.PORT || 3001;
+    await connectDB(process.env.MONGO_URI || 'mongodb://localhost:27017/rms-menu-db');
+    const PORT = process.env.PORT || 3000;
     app.listen(PORT, () => {
       console.log(`🚀 Order service is live on http://localhost:${PORT}`);
     });
